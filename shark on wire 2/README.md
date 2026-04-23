@@ -11,5 +11,9 @@ none
 4. Looking in the info column, we can see that the requests all come from different ports from the same IP.
 5. Filter the IP: `ip.src == 10.0.0.66`
 6. We can see that the second message originates from source port 5112. 112 is a number which should alert us, since its ASCII representation is `p`, which matches the flag template.
-7. Run the [script.py](script.py) to grab all the port numbers and convert them to ASCII, which is the flag.
-here is flag `picoCTF{theflagisnothere}`
+7. there two way you can do this which by running script or doing manually, 
+
+if you want to do it manually which can do it If we then take the last 3 digits of each number in the order of the packet times and convert them to ASCII, we can get our flag.
+
+here the script if you want it automatically
+
