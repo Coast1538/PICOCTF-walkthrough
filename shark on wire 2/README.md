@@ -1,9 +1,10 @@
-
 ## problem statement
+We found this [packet capture](https://challenge-files.picoctf.net/c_fickle_tempest/f208f7c58d3703ed5fe0a78f707f011fcbb8c0b210b35247762c7ccacb49fe46/capture.pcap). Recover the flag.
 
+## Hint
+none
 
-[packet capture](https://challenge-files.picoctf.net/c_fickle_tempest/f208f7c58d3703ed5fe0a78f707f011fcbb8c0b210b35247762c7ccacb49fe46/capture.pcap)
-
+## Solution
 1. Open the ".pcap" file in wireshark.
 2. Since the previous challenge involved following the UDP stream, that is the first step we should take to solve this. Go to `Analyze -> Follow -> UDP Stream` and click through the streams.
 3. One stream has a message labeled start and the following streams are all strings of various lengths that contain the character "a".
@@ -11,6 +12,5 @@
 5. Filter the IP: `ip.src == 10.0.0.66`
 6. We can see that the second message originates from source port 5112. 112 is a number which should alert us, since its ASCII representation is `p`, which matches the flag template.
 7. Run the [script.py](script.py) to grab all the port numbers and convert them to ASCII, which is the flag.
-
-
+8. ![Screenshot](screenshot.JPG)
 here is flag `picoCTF{theflagisnothere}`
