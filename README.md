@@ -1,6 +1,6 @@
 # PICOCTF-walkthrough
 
-https://challenge-files.picoctf.net/c_fickle_tempest/f208f7c58d3703ed5fe0a78f707f011fcbb8c0b210b35247762c7ccacb49fe46/capture.pcap
+[packet capture](https://challenge-files.picoctf.net/c_fickle_tempest/f208f7c58d3703ed5fe0a78f707f011fcbb8c0b210b35247762c7ccacb49fe46/capture.pcap)
 
 1. Open the ".pcap" file in wireshark.
 2. Since the previous challenge involved following the UDP stream, that is the first step we should take to solve this. Go to `Analyze -> Follow -> UDP Stream` and click through the streams.
