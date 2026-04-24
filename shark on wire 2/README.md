@@ -15,5 +15,5 @@ none
 
 if you want to do it manually which can do it If we then take the last 3 digits of each number in the order of the packet times and convert them to ASCII, we can get our flag.
 
-here the script if you want it automatically run this [script.py](script.py)
+here the script if you want it automatically [script.py](script.py)
 
