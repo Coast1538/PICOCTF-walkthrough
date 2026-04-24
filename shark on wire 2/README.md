@@ -13,6 +13,8 @@ none
 6. We can see that the second message originates from source port 5112. 112 is a number which should alert us, since its ASCII representation is `p`, which matches the flag template.
 7. there two way you can do this which by running script or doing manually, 
 
+<bj><bj>
+
 if you want to do it manually which can do it If we then take the last 3 digits of each number in the order of the packet times and convert them to ASCII, we can get our flag.
 
 here the script if you want it automatically [script.py](script.py)
