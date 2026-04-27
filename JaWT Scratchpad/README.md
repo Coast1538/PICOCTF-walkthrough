@@ -19,9 +19,8 @@ Additional details will be available after launching your challenge instance.
 7. after that go cyberchef and get “to base64” than put “ilovepico” into it
 8. after that go back to Symmetric key you generator and put base64 encryption you got into k (it should look like this)
 9. after you do that go back to website on burpsuite and refresh the  page (remember to press forward in burpsuite)
-10. after you do that go HTTP history and right click the tag that all the way the bottom 
-`(note it should have)
-method as GET 
+10. after you do that go HTTP history and right click the tag that all the way the bottom make sure it has
+`method as GET 
 URL as / 
 and is green` 
 11. after you do that right click it press send to Repeater
