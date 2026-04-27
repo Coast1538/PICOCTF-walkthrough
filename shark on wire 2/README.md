@@ -8,7 +8,7 @@ none
 
 ## Solution
 1. Open the ".pcap" file in wireshark.
-2. Since the previous challenge involved following the UDP stream, that is the first step we should take to solve this. Go to `Analyze -> Follow -> UDP Stream` and click through the streams.
+2. Since the challenge before involved UDP stream, that is the first step we should take to solve this. Go to `Analyze -> Follow -> UDP Stream` and click through the streams.
 3. One stream has a message labeled start and the following streams are all strings of various lengths that contain the character "a".
 4. Looking in the info column, we can see that the requests all come from different ports from the same IP.
 5. Filter the IP: `ip.src == 10.0.0.66`
