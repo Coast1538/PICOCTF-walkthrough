@@ -22,7 +22,7 @@ On Kali Linux, you need a tool that can read and "re-sign" Flask cookies.
 This is the most important setup step. The server's "secret key" is one of 28 specific cookie names. You use the cat command to create a dictionary file that the tool will use to guess the password.
 <br><br>
 
-so you need to run a `nano wordlist.txt` which here it is if you need it [script.py](script.py)
+so you need to run a `nano wordlist.txt` which here it is if you need it [wordlist.txt](script.py)
 
 3. Find the Secret Key (Brute-Force
 <br><br>
