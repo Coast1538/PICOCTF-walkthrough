@@ -40,7 +40,7 @@ Use this [wordlist.txt](script.py) script, which contains 28 cookie names and di
 
 ### 3. Get Cookie Value
 
-Go to the website, right-click, and select **Inspect → Application → Storage → Cookies**. You should see the cookie value. Copy it.
+Go to the website, right-click, and select **Inspect → Storage → Cookies**. You should see the cookie value. Copy it.
 
 **Explanation:**
 - `Inspect` opens the browser's developer tools
@@ -85,5 +85,5 @@ The terminal will output a new long string. Copy it.
 
 ### 6. Replace the Cookie Value
 
-Go to the website and select **Inspect → Application → Storage → Cookies**. Replace the cookie value with the new signed cookie you just created in terminal, then refresh the website. You should get the flag.
+Go to the website and select **Inspect → Storage → Cookies**. Replace the cookie value with the new signed cookie you just created in terminal, then refresh the website. You should get the flag.
 
