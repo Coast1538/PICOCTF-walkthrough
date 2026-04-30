@@ -13,6 +13,14 @@ Additional details will be available after launching your challenge instance.
 
 On Kali Linux, you need a tool that can read and "re-sign" Flask cookies which is <br><br>
 `pip3 install flask-unsign[wordlist] --break-system-packages`
+pip3 install flask-unsign[wordlist] --break-system-packages
+<!--
+Reason:
+pip3 installs packages
+flask-unsign is the tool
+[wordlist] adds wordlist support
+--break-system-packages forces install
+-->
 
 <br><br>
 2. Create the "Guessing" Wordlist
