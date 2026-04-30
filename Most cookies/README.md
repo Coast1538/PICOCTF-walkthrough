@@ -16,22 +16,23 @@ On Kali Linux, you need a tool that can read and "re-sign" Flask cookies which i
 <br><br>
 2. Create the "Guessing" Wordlist
 <br><br>
-This is the most important part. The server's need "secret key" and one out of 28 specific cookie names is it. so how we do it is through script which can do it by create `nano wordlist.txt`, which script i use for it [wordlist.txt](script.py)
+This is the most important part. The server's need "secret key" and one out of 28 specific cookie names is it. so how we do it is through a script which can do it by create `nano wordlist.txt` in termical, which script i use for it [wordlist.txt](script.py) which has 28 cookie and extra line code to display cookie. 
 
-<br<br>
+<br><br>
 3. Get cookie value
 <br><br>
 
 Now, go to website go to and right click and hit `inspect -> application -> storage -> cookie` which you should see vaule of cookie which copy that 
 
+<br><br>
 4. Find the Secret Key (Brute-Force)
-which tool you install before will help you in next step (your need current cookie (from your browser) and the list of words you just made with `wordlist.txt`. which when run command it will run every word until find right one
+the tool you install before will help you in next step (your need current cookie from your browser) and the list of words you just made with `wordlist.txt`. which when run command it will run every word until find right one
 <br><br>
 
-Run this command: `flask-unsign --unsign --cookie 'eyJ2ZXJ5X2F1dGgiOiJibGFuayJ9.afJ_ow.kwC0cfqBSOOfe0efTFzRxajdXbg' --wordlist wordlist.txt`
+Run this command: `flask-unsign --unsign --cookie '(cookie value you got)' --wordlist wordlist.txt`
 <br?<br>
 
-The result: will tell secrey key that for website
+The result: will tell secret key that for website
 
 5. Forge the Admin Cookie
 <br><br>
