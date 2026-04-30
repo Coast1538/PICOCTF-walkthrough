@@ -29,7 +29,8 @@ which tool you install before will help you in next step (your need current cook
 <br><br>
 
 Run this command: `flask-unsign --unsign --cookie 'eyJ2ZXJ5X2F1dGgiOiJibGFuayJ9.afJ_ow.kwC0cfqBSOOfe0efTFzRxajdXbg' --wordlist wordlist.txt`
-<br<br>
+<br?<br>
+
 The result: will tell secrey key that for website
 
 5. Forge the Admin Cookie
