@@ -71,7 +71,7 @@ Now that you have the secret key, you can "sign" your own cookie, and the server
 Run this command:
 
 ```bash
-flask-unsign --sign --cookie "{'very_auth': 'admin'}" --secret 'pinwheel'
+flask-unsign --sign --cookie "{'very_auth': 'admin'}" --secret '(the cookie it give you)'
 ```
 
 **Explanation:**
