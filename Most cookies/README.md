@@ -34,6 +34,7 @@ Run this command: `flask-unsign --unsign --cookie '(cookie value you got)' --wor
 
 The result: will tell secret key that for website
 
+<br><br>
 5. Forge the Admin Cookie
 <br><br>
 
@@ -43,6 +44,7 @@ Run this command:
 
 The result: The terminal will give you a new long string, Copy it.
 
+<br><br>
 6. when you copy it go in website and `inspect -> application -> storage -> cookie`
 
 after you that go to value in cookie and change value to secret key given then refresh website after that you should get the flag
