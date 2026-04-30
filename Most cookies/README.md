@@ -10,11 +10,10 @@ Additional details will be available after launching your challenge instance.
 
 ## Solution
 1. Install the Cracking Tool
-<br<br>
 
 On Kali Linux, you need a tool that can read and "re-sign" Flask cookies which is `pip3 install flask-unsign[wordlist] --break-system-packages` .
 
-<br<br>
+<br><br>
 2. Create the "Guessing" Wordlist
 <br><br>
 This is the most important part. The server's need "secret key" and one out of 28 specific cookie names is it. so how we do it is through script which can do it by create `nano wordlist.txt`, which script i use for it [wordlist.txt](script.py)
