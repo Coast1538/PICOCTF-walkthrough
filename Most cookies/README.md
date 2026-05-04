@@ -60,7 +60,7 @@ flask-unsign --unsign --cookie '(cookie value you got from website)' --wordlist 
 **Explanation:**
 - `flask-unsign` is the cracking tool you installed
 - `--unsign` tells it to try to crack/decode the cookie
-- `--cookie '(cookie value you got)'` is the cookie string you copied from your browser
+- `--cookie '(cookie value you got from website)'` is the cookie string you copied from your browser
 - `--wordlist wordlist.txt` tells it which wordlist file to use for guessing
 
 The result will show the secret key for the website.
