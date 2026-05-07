@@ -1,6 +1,4 @@
-# Jauth Walkthrough
-
-**Challenge:** [Jauth](https://play.picoctf.org/practice/challenge/)
+# [Jauth](https://play.picoctf.org/practice/challenge/177)
 
 ## Problem Statement
 Authenticate as an admin user to access protected resources.
