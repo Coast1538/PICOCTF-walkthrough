@@ -7,23 +7,13 @@ Authenticate as an admin user to access protected resources.
 1. What is that cookie?
 2. Have you heard of JWT (JSON Web Tokens)?
 
-## Key Concepts
-- **JWT (JSON Web Token)**: A secure way to transmit user information between client and server
-- **JWT Components**: Header.Payload.Signature
-  - **Header**: Token type and hashing algorithm
-  - **Payload**: User claims (username, role, permissions, etc.)
-  - **Signature**: Cryptographic signature to verify authenticity
-- **Cookie Security**: If the secret key is weak or known, attackers can forge valid tokens
-- **Role Escalation**: Changing the `role` claim from `user` to `admin` can grant unauthorized access
-
 ## Solution
 
-### Step 1: Setup Burp Suite
+### Step 1: Burp suite
+
 1. Launch Burp Suite
-2. Click **Next** → **Start Burp**
-3. Go to **Proxy** tab
-4. Enable **Intercept is on** toggle
-5. Click **Open browser** to launch Burp's built-in browser
+2. Click `Next** → **Start Burp`
+3. Go to `Proxy -> turn Intercept is on -> Open browser` to launch Burp's built-in browser
 
 ### Step 2: Access the Challenge Website
 1. In Burp's browser, paste the Jauth challenge URL
