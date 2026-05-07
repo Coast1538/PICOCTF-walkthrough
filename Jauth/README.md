@@ -1,5 +1,15 @@
-Jauth walkthrough
+[Jauth walkthrough](https://play.picoctf.org/practice/challenge/25)
 
+## problem statement
+Check the admin scratchpad!
+Additional details will be available after launching your challenge instance.
+
+## Hint
+1. What is that cookie?
+2. Have you heard of JWT?
+
+
+## Solution
 1. make sure to launches the website instance on demand.
 2. after doing that go burpsuite since we need jwt edior for this one (if you have jwt edior you won't need this step but this way i did it)
 3. when open burp suite perss -> next -> start burp since we don't need to worry about other stuff
