@@ -1,34 +1,108 @@
-[Jauth walkthrough](https://play.picoctf.org/practice/challenge/25)
+# Jauth Walkthrough
 
-## problem statement
-Check the admin scratchpad!
-Additional details will be available after launching your challenge instance.
+**Challenge:** [Jauth](https://play.picoctf.org/practice/challenge/)
 
-## Hint
+## Problem Statement
+Authenticate as an admin user to access protected resources.
+
+## Hints
 1. What is that cookie?
-2. Have you heard of JWT?
+2. Have you heard of JWT (JSON Web Tokens)?
 
+## Key Concepts
+- **JWT (JSON Web Token)**: A secure way to transmit user information between client and server
+- **JWT Components**: Header.Payload.Signature
+  - **Header**: Token type and hashing algorithm
+  - **Payload**: User claims (username, role, permissions, etc.)
+  - **Signature**: Cryptographic signature to verify authenticity
+- **Cookie Security**: If the secret key is weak or known, attackers can forge valid tokens
+- **Role Escalation**: Changing the `role` claim from `user` to `admin` can grant unauthorized access
 
 ## Solution
-1. make sure to launches the website instance on demand.
-2. after doing that go burpsuite since we need jwt edior for this one (if you have jwt edior you won't need this step but this way i did it)
-3. when open burp suite perss -> next -> start burp since we don't need to worry about other stuff
-4. after it lautch go to proxy -> turn on interecpt -> open browser
-5. <img width="1631" height="910" alt="image" src="https://github.com/user-attachments/assets/625687c2-a4bb-48bd-ad72-d2ee0afa58c4" />
 
-6. after you open brower put the website by right click -> copy link addresss then put on burpsuirte brower (which after you paste website make sure to back to proxy and foward it you need to do this for every action that update website)
-7. <img width="1610" height="895" alt="image" src="https://github.com/user-attachments/assets/ac894bdf-94eb-4374-a1ca-e5a71999d8de" />
+### Step 1: Setup Burp Suite
+1. Launch Burp Suite
+2. Click **Next** → **Start Burp**
+3. Go to **Proxy** tab
+4. Enable **Intercept is on** toggle
+5. Click **Open browser** to launch Burp's built-in browser
 
-8. <img width="1916" height="914" alt="image" src="https://github.com/user-attachments/assets/63b8887f-46e8-48e9-a1a3-a73ff00cd708" />
-9. this how website should look like and need put username and password the thing provide which is
-   username: test
-    password Test123!
-10.  after you put in username and password and forawt it it should look like this
-11.  <img width="1912" height="903" alt="image" src="https://github.com/user-attachments/assets/21e1cece-01b4-4385-b618-57859f9b5049" />
-12. go back to burpsuite -> HTTP history then find the most recent time (always on bottom) or one that has /private
-13. after you do that right click it and hit send to repeater
-14. if you have after that you need to install jwt editor by going to extenstions -> Bapp Store -> JWT editor -> install <img width="1904" height="1014" alt="image" src="https://github.com/user-attachments/assets/62a6c01d-6a5a-454b-8f2a-cfa115b5719a" />
-15. when you do this go to repeater -> JSON web token
-16. when do this you need to change attack tgsdgsdgsdgsd and role: user -> role: admin to think your admin and not take to long to find algorithm
-17. <img width="779" height="869" alt="image" src="https://github.com/user-attachments/assets/2f0bda96-2ee7-4865-8101-64189cfa4d48" />
+### Step 2: Access the Challenge Website
+1. In Burp's browser, paste the Jauth challenge URL
+2. The browser will begin intercepting requests
+3. Go back to Burp Suite's **Proxy** tab and click **Forward** for each request
+4. Continue until you reach the Jauth login page
 
+### Step 3: Login with Provided Credentials
+1. On the Jauth login page, you should see credentials:
+   - **Username:** `test`
+   - **Password:** `Test123!`
+2. Enter these credentials and click **Login**
+3. In Burp Suite, click **Forward** on the login request
+4. The server will respond with a JWT cookie in the response headers
+5. **Note the JWT**: It will be in a `Set-Cookie` header and contain three Base64-encoded parts separated by dots
+
+### Step 4: Capture the JWT Cookie
+1. In Burp Suite, go to **HTTP History**
+2. Find the most recent request (usually at the **bottom**)
+3. Look for a request with:
+   - **URL:** `/private` or similar protected resource
+   - **Method:** GET or POST
+4. In the response, you should see the JWT in the `Set-Cookie` header
+5. Right-click the request and select **Send to Repeater**
+
+### Step 5: Install JWT Editor Extension
+1. In Burp Suite, go to **Extensions** tab
+2. Click **BApp Store**
+3. Search for **JWT Editor**
+4. Click **Install**
+5. The extension will now appear in your Extensions tabs
+
+### Step 6: Examine and Decode the JWT
+1. Go to the **Repeater** tab
+2. Look at the HTTP response from the login request
+3. Find the JWT token in the `Set-Cookie` header
+4. Copy the JWT token (the part between `auth=` and the semicolon)
+5. Open the **JWT Editor** extension
+6. Click the **Decoder** tab
+7. Paste the JWT and click **Decode**
+
+### Step 7: Analyze the Payload
+The decoded JWT should show:
+- **Header**: `{"alg":"HS256","typ":"JWT"}`
+- **Payload**: Something like `{"username":"test","role":"user"}`
+- **Signature**: The cryptographic signature
+
+**Goal**: Change `"role":"user"` to `"role":"admin"`
+
+### Step 8: Craft the Admin JWT
+1. In the **Repeater** tab, click on the **JSON Web Token** tab
+2. Click the **Payload** section
+3. Change `"role":"user"` to `"role":"admin"`
+4. Change the algorithm if needed (find what algorithm the server uses - typically `HS256`)
+5. Click the **Sign** button
+6. The extension will sign the token with the (possibly weak) secret key
+7. If successful, you'll get a new signed JWT
+
+### Step 9: Send the Forged JWT
+1. In the **Repeater** tab, replace the old JWT cookie with the new one
+2. Modify the request to include your new JWT in the `Cookie` header
+3. Click **Send**
+4. If the signature is valid, the server will accept your request as an admin
+
+### Step 10: Access Admin Resources and Get the Flag
+1. Look at the **Response** from the request with the admin JWT
+2. You should now have access to admin-only content
+3. Search the response for `pico` or look for a flag in the page content
+4. The flag should be visible in the response
+
+## Vulnerability Explanation
+
+**Weak Secret Key**: The JWT is likely signed with a weak or guessable secret (like an empty string, common words, or simple patterns). By modifying the payload to claim `"role":"admin"` and signing it with the weak secret, you can impersonate an admin without knowing the actual password.
+
+## Security Lessons
+- ✅ Use strong, cryptographically random secret keys
+- ✅ Validate JWT signatures on every request
+- ✅ Store secrets securely (never hardcode them)
+- ✅ Use HTTPS to prevent cookie interception
+- ✅ Implement proper role-based access control (RBAC) on the server side
