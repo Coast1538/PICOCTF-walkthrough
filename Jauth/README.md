@@ -1,12 +1,12 @@
 # [Jauth](https://play.picoctf.org/practice/challenge/236)
 
 ## Problem Statement
-Most web application developers use third party components without testing their security. 
+Most web application developers use third-party components without testing their security. 
 Some of the past affected companies are:
 
 - Equifax (a US credit bureau organization) - breach due to unpatched Apache Struts web framework CVE-2017-5638
 
-- Mossack Fonesca (Panama Papers law firm) breach - unpatched version of Drupal CMS used
+- Mossack Fonesca (Panama Papers law firm) breach - an unpatched version of Drupal CMS used
 
 - VerticalScope (internet media company) - outdated version of vBulletin forum software used
 
@@ -55,7 +55,7 @@ Additional details will be available after launching your challenge instance.
 
 1. Go to the **Repeater → JSON web token** tab
 2. Click the **Payload** section
-3. Change `"role":"user"` to `"role":"admin"`
+3. Change `"role": "user"` to `"role": "admin"`
 4. After doing that, press **Attack → Change algorithm to none**
 5. Click **Send**
 6. If the signature is valid, the server will accept your request as an admin
