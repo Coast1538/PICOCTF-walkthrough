@@ -1,4 +1,4 @@
-# [Jauth](https://play.picoctf.org/practice/challenge/177)
+# [Jauth](https://play.picoctf.org/practice/challenge/236)
 
 ## Problem Statement
 Authenticate as an admin user to access protected resources.
