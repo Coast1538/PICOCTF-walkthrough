@@ -1,11 +1,21 @@
 # [Jauth](https://play.picoctf.org/practice/challenge/236)
 
 ## Problem Statement
-Authenticate as an admin user to access protected resources.
+Most web application developers use third party components without testing their security. 
+Some of the past affected companies are:
+
+-Equifax (a US credit bureau organization) - breach due to unpatched Apache Struts web framework CVE-2017-5638
+
+-Mossack Fonesca (Panama Papers law firm) breach - unpatched version of Drupal CMS used
+
+-VerticalScope (internet media company) - outdated version of vBulletin forum software used
+
+Can you identify the components and exploit the vulnerable one?
+Additional details will be available after launching your challenge instance.
 
 ## Hints
-1. What is that cookie?
-2. Have you heard of JWT (JSON Web Tokens)?
+1. Use the web browser tools to check out the JWT cookie.
+2. The JWT should always have two (2) . separators.
 
 ## Solution
 
